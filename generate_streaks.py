@@ -62,11 +62,11 @@ for team, stats in sorted(team_data.items()):
     last_game = 'Y' if fi_1[0] else 'N'
 else:
     last_game = 'N/A'
-lines.append(f"<p>Last Game: {last_game}</p>")
+if fi_1:
     last_game = 'Y' if fi_1[0] else 'N'
 else:
     last_game = 'N/A'
-lines.append(f"<p>Last Game: {last_game}</p>
+lines.append(f"<p>Last Game: {last_game}</p>")
 lines.append('</section>')
 
 with open("streaks.html", "w") as f:
