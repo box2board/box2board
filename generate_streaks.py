@@ -58,7 +58,15 @@ for team, stats in sorted(team_data.items()):
     lines.append("<strong>1st Inning Scoring:</strong>")
     lines.append(f"<p>Last 5: {', '.join(['Y' if x else 'N' for x in fi_5])}</p>")
     lines.append(f"<p>Last 3: {', '.join(['Y' if x else 'N' for x in fi_3])}</p>")
-    lines.append(f"<p>Last Game: {'Y' if fi_1[0] else 'N' if fi_1 else 'N/A'}</p>")
+    if fi_1:
+    last_game = 'Y' if fi_1[0] else 'N'
+else:
+    last_game = 'N/A'
+lines.append(f"<p>Last Game: {last_game}</p>")
+    last_game = 'Y' if fi_1[0] else 'N'
+else:
+    last_game = 'N/A'
+lines.append(f"<p>Last Game: {last_game}</p>
 lines.append('</section>')
 
 with open("streaks.html", "w") as f:
