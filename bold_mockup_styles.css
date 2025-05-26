@@ -1,0 +1,94 @@
+
+/* Base Layout */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Header and Logo */
+header {
+  background-color: #0f0f0f;
+  padding: 20px;
+  border-bottom: 2px solid #222;
+}
+
+header img {
+  height: 70px;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #61dafb;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+  color: #ffffff;
+}
+
+/* Main Content */
+main {
+  padding: 40px 20px;
+}
+
+/* Scoreboard Container */
+.scoreboard {
+  margin-top: 40px;
+}
+
+/* Animated Pulse Effect for Updated Scores */
+@keyframes pulse {
+  0% { background-color: #1d1d1d; }
+  50% { background-color: #2a2a2a; }
+  100% { background-color: #1d1d1d; }
+}
+
+.score-update {
+  animation: pulse 0.6s ease-in-out;
+}
+
+/* Score Cards - Default */
+.score-row {
+  margin: 15px auto;
+  padding: 16px 24px;
+  max-width: 600px;
+  border-left: 5px solid #61dafb;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  background-color: #1d1d1d;
+  transition: background-color 0.3s ease;
+}
+
+.score-row:hover {
+  background-color: #2c2c2c;
+}
+
+/* Headings */
+h1, h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Team-Specific Colors */
+.score-row.yankees { border-left-color: #003087; }
+.score-row.redsox { border-left-color: #BD3039; }
+.score-row.dodgers { border-left-color: #005A9C; }
+.score-row.giants { border-left-color: #FD5A1E; }
+.score-row.cubs { border-left-color: #0E3386; }
+.score-row.cardinals { border-left-color: #C41E3A; }
