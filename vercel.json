@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/mlb", "destination": "/mlb/index.html" }
-  ]
-}
