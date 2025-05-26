@@ -144,3 +144,97 @@ main {
 .score-row:hover {
   background-color: #333;
 }
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1f1f1f;
+  padding: 10px 0;
+  border-bottom: 2px solid #2a2a2a;
+}
+
+header img {
+  height: 60px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  list-style: none;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #61dafb;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+  color: #ffffff;
+}
+
+/* Main Section */
+main {
+  text-align: center;
+  margin-top: 40px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.score-card {
+  background-color: #1e1e2f;
+  border-left: 6px solid #61dafb;
+  padding: 15px 25px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+}
+
+.score-card:hover {
+  transform: scale(1.02);
+  background-color: #252537;
+}
+
+.score-card span {
+  display: block;
+  margin-top: 5px;
+  color: #ccc;
+  font-size: 0.95rem;
+}
