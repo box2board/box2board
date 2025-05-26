@@ -44,3 +44,24 @@ nav ul li a {
 nav ul li a:hover {
   text-decoration: underline;
 }
+/* Animation for updated scores */
+@keyframes pulse {
+  0% { background-color: #0a1a33; }
+  50% { background-color: #1d2e4f; }
+  100% { background-color: #0a1a33; }
+}
+
+.score-update {
+  animation: pulse 0.6s ease-in-out;
+}
+
+/* Hover effect for scoreboard rows */
+.score-row {
+  padding: 10px 0;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #1a2a44;
+}
+
+.score-row:hover {
+  background-color: #1d2e4f;
+}
