@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 
 # === CONFIG ===
-API_KEY = "e30c5b8f17c5972899cb2908082342cb"  # Your OddsAPI key
+  # Your OddsAPI key
 SPORT = "baseball_mlb"
 REGION = "us"
 MARKETS = "h2h,spreads,totals"
