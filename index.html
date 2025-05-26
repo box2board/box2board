@@ -23,5 +23,22 @@
       </ul>
     </nav>
   </main>
+  <section class="scoreboard">
+  <h2>Live MLB Scoreboard</h2>
+  <div id="scoreboard-container">
+    <p>Loading today’s games...</p>
+  </div>
+</section>
+
+<script>
+  // Placeholder for real data
+  document.getElementById("scoreboard-container").innerHTML = `
+    <ul>
+      <li><strong>Yankees</strong> 3 - 2 <strong>Red Sox</strong> (Bottom 7th)</li>
+      <li><strong>Dodgers</strong> 5 - 5 <strong>Giants</strong> (Top 9th)</li>
+      <li><strong>Cubs</strong> 1 - 4 <strong>Cardinals</strong> (Final)</li>
+    </ul>
+  `;
+</script>
 </body>
 </html>
