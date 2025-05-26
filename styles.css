@@ -65,3 +65,28 @@ nav ul li a:hover {
 .score-row:hover {
   background-color: #1d2e4f;
 }
+/* Scoreboard Styles */
+.score-row {
+  padding: 12px 20px;
+  margin: 10px 0;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.score-row:hover {
+  background-color: #e6f0ff;
+  transform: scale(1.02);
+}
+
+@keyframes pulse {
+  0% { background-color: #e0f7fa; }
+  50% { background-color: #b2ebf2; }
+  100% { background-color: #e0f7fa; }
+}
+
+.score-update {
+  animation: pulse 0.7s ease-in-out;
+}
