@@ -82,3 +82,28 @@ h1 {
     transform: scale(1);
   }
 }
+/* Homepage Hero Hook */
+.hero-hook {
+  background-color: #ffffff;
+  color: #0b1c2c;
+  padding: 60px 20px 40px;
+  max-width: 800px;
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.hero-hook h1 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.hero-hook .subtext {
+  font-size: 1.1em;
+  color: #444;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
