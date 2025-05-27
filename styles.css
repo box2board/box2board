@@ -165,3 +165,39 @@ h1 {
   border-left: 4px solid #e01b24;
   padding-left: 15px;
 }
+/* Footer Styling */
+.site-footer {
+  background-color: #0f0f0f;
+  color: #cccccc;
+  padding: 20px;
+  font-size: 0.95em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #222;
+  margin-top: 40px;
+}
+
+.site-footer a {
+  color: #61dafb;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+}
+
+.footer-left, .footer-right {
+  width: 100%;
+  text-align: center;
+  margin: 5px 0;
+}
+
+@media (min-width: 600px) {
+  .footer-left, .footer-right {
+    width: auto;
+    text-align: inherit;
+  }
+}
