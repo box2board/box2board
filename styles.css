@@ -1,240 +1,84 @@
+/* General Page Styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #0b1c2c;
   margin: 0;
   padding: 0;
-  background-color: #f5f5f5;
   text-align: center;
 }
 
+/* Header Styles */
 header {
-  background-color: #111;
-  padding: 15px 0;
+  padding: 20px;
 }
 
 header img {
-  max-height: 80px;
+  height: 80px;
 }
 
-main {
-  padding: 30px;
-}
-
-h1 {
-  color: #222;
-}
-
+/* Navigation Links */
 nav ul {
   list-style-type: none;
   padding: 0;
-  margin: 20px 0;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
 }
 
-nav ul li {
-  display: inline-block;
-  margin: 10px 15px;
-}
-
-nav ul li a {
+nav a {
   text-decoration: none;
-  color: #0077cc;
+  color: #e01b24;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 18px;
 }
 
-nav ul li a:hover {
-  text-decoration: underline;
-}
-/* Animation for updated scores */
-@keyframes pulse {
-  0% { background-color: #0a1a33; }
-  50% { background-color: #1d2e4f; }
-  100% { background-color: #0a1a33; }
+nav a:hover {
+  color: #b40000;
 }
 
-.score-update {
-  animation: pulse 0.6s ease-in-out;
-}
-
-/* Hover effect for scoreboard rows */
-.score-row {
-  padding: 10px 0;
-  transition: background-color 0.3s ease;
-  border-bottom: 1px solid #1a2a44;
-}
-
-.score-row:hover {
-  background-color: #1d2e4f;
-}
-/* Scoreboard Styles */
-.score-row {
-  padding: 12px 20px;
-  margin: 10px 0;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-.score-row:hover {
-  background-color: #e6f0ff;
-  transform: scale(1.02);
-}
-
-@keyframes pulse {
-  0% { background-color: #e0f7fa; }
-  50% { background-color: #b2ebf2; }
-  100% { background-color: #e0f7fa; }
-}
-
-.score-update {
-  animation: pulse 0.7s ease-in-out;
-}
-/* Simple bold redesign */
-body {
-  background-color: #111;
-  color: #fff;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  background-color: #000;
-  padding: 10px;
-  text-align: center;
-}
-
-header img {
-  height: 70px;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-nav ul li a {
-  color: #00bfff;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  color: #ffffff;
-}
-
-main {
-  padding: 20px;
-  text-align: center;
-}
-
-.score-row {
-  background-color: #222;
-  margin: 10px auto;
-  padding: 12px;
-  max-width: 600px;
-  border: 1px solid #444;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-}
-
-.score-row:hover {
-  background-color: #333;
-}
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #121212;
-  color: #ffffff;
-  line-height: 1.6;
-  padding: 20px;
-}
-
-/* Header */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #1f1f1f;
-  padding: 10px 0;
-  border-bottom: 2px solid #2a2a2a;
-}
-
-header img {
-  height: 60px;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-  list-style: none;
-  gap: 20px;
-}
-
-nav ul li a {
-  color: #61dafb;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: color 0.2s ease-in-out;
-}
-
-nav ul li a:hover {
-  color: #ffffff;
-}
-
-/* Main Section */
-main {
-  text-align: center;
-  margin-top: 40px;
-}
-
+/* Main Headline */
 h1 {
-  font-size: 2rem;
-  margin-bottom: 15px;
+  font-size: 2.2em;
+  margin-top: 30px;
+  color: #0b1c2c;
 }
 
-p {
-  color: #aaa;
-  margin-bottom: 30px;
-}
-
-/* Scoreboard */
+/* Scoreboard Styling */
 .scoreboard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.score-card {
-  background-color: #1e1e2f;
-  border-left: 6px solid #61dafb;
-  padding: 15px 25px;
-  width: 90%;
+  margin: 40px auto;
   max-width: 600px;
-  border-radius: 6px;
-  transition: transform 0.2s ease;
+  padding: 0 15px;
 }
 
-.score-card:hover {
-  transform: scale(1.02);
-  background-color: #252537;
+.score-row {
+  background-color: #e01b24;
+  color: white;
+  margin: 15px 0;
+  padding: 18px 25px;
+  border-radius: 12px;
+  font-size: 1.3em;
+  font-weight: bold;
+  animation: popFadeIn 0.6s ease forwards;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.score-card span {
-  display: block;
-  margin-top: 5px;
-  color: #ccc;
-  font-size: 0.95rem;
+/* Status Text Styling */
+.score-row span {
+  font-weight: normal;
+  font-size: 0.85em;
+  margin-left: 6px;
+}
+
+/* Animation */
+@keyframes popFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
