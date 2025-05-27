@@ -136,3 +136,32 @@ h1 {
   border-left: 4px solid #e01b24;
   padding-left: 15px;
 }
+/* Today's Games Section */
+.events-section {
+  background-color: #f0f0f0;
+  color: #0b1c2c;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.events-section h2 {
+  font-size: 1.8em;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.event-list {
+  list-style-type: none;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+}
+
+.event-list li {
+  margin-bottom: 15px;
+  font-size: 1.05em;
+  line-height: 1.5;
+  border-left: 4px solid #e01b24;
+  padding-left: 15px;
+}
