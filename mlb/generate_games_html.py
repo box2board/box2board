@@ -1,42 +1,53 @@
 import os
 import requests
 from datetime import datetime
+from pathlib import Path
 
-# Step 1: Get the API key from environment variables
-api_key = os.getenv("ODDS_API_KEY")
+API_KEY = os.environ.get('ODDS_API_KEY')
+SPORT = 'baseball_mlb'
+REGION = 'us'
+MARKET = 'h2h'
+ODDS_API_URL = f'https://api.the-odds-api.com/v4/sports/{SPORT}/odds'
 
-# Step 2: Construct the request URL
-url = f"https://api.the-odds-api.com/v4/sports/baseball_mlb/odds/?apiKey={api_key}&regions=us&markets=h2h"
+params = {
+    'regions': REGION,
+    'markets': MARKET,
+    'apiKey': API_KEY
+}
 
-# Step 3: Make the request
-response = requests.get(url)
-
-# Step 4: Check for successful response
+response = requests.get(ODDS_API_URL, params=params)
 if response.status_code != 200:
     raise Exception(f"Failed to fetch odds: {response.status_code} - {response.text}")
 
-data = response.json()
+games = response.json()
 
-# Step 5: Generate HTML output
-html_output = "<h2>Today’s MLB Odds</h2>\n"
-html_output += f"<p>Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>\n"
-html_output += "<ul>\n"
+html_lines = [
+    '<section class="scoreboard">',
+    '<h2>Live MLB Odds</h2>',
+    '<ul>'
+]
 
-for game in data:
-    teams = f"{game['home_team']} vs {game['away_team']}"
-    html_output += f"<li><strong>{teams}</strong><br>"
+for game in games:
+    teams = game.get('teams', [])
+    home_team = game.get('home_team', '')
+    commence_time = datetime.fromisoformat(game['commence_time'].replace('Z', '')).strftime('%I:%M %p ET')
 
-    for bookmaker in game.get("bookmakers", []):
-        html_output += f"<em>{bookmaker['title']}</em><br>"
-        for market in bookmaker.get("markets", []):
-            for outcome in market.get("outcomes", []):
-                html_output += f"{outcome['name']}: {outcome['price']}<br>"
-        html_output += "<br>"
+    bookmakers = game.get('bookmakers', [])
+    if not bookmakers:
+        continue
 
-    html_output += "</li>\n"
+    best_book = bookmakers[0]
+    outcomes = best_book['markets'][0]['outcomes']
+    team_odds = {outcome['name']: outcome['price'] for outcome in outcomes}
 
-html_output += "</ul>"
+    team_1 = teams[0]
+    team_2 = teams[1]
 
-# Step 6: Save to HTML file for site use
-with open("mlb/mlb_odds.html", "w", encoding="utf-8") as f:
-    f.write(html_output)
+    odds_text = f"{team_1} ({team_odds.get(team_1, '?')}) vs {team_2} ({team_odds.get(team_2, '?')})"
+    html_lines.append(f"<li><strong>{commence_time}:</strong> {odds_text}</li>")
+
+html_lines.append('</ul>')
+html_lines.append('</section>')
+
+with open("mlb/index.html", "w") as f:
+    f.write("\n".join(html_lines))
