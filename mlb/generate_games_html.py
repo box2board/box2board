@@ -4,6 +4,7 @@ from datetime import datetime
 from pathlib import Path
 
 API_KEY = os.environ.get('ODDS_API_KEY')
+print("Using API Key:", API_KEY[:5], "********")
 SPORT = 'baseball_mlb'
 REGION = 'us'
 MARKET = 'h2h'
