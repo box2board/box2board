@@ -1,12 +1,10 @@
 name: Update MLB Odds
 
 on:
-  schedule:
-    - cron: '0 13 * * *'  # Runs every day at 9AM EST (13 UTC)
-  workflow_dispatch:      # Allows manual trigger
+  workflow_dispatch:
 
 jobs:
-  build:
+  update-odds:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,21 +14,21 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: '3.10'
 
+      # You can skip this if no external packages are required
       - name: Install dependencies
         run: |
-          pip install requests
+          if [ -f mlb/requirements.txt ]; then pip install -r mlb/requirements.txt; fi
 
       - name: Run script
-        env:
-          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python mlb/mlb_odds_today.py
+        working-directory: ./mlb
+        run: python generate_games_html.py
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git add .
-          git commit -m "Auto-update MLB odds"
+          git add index.html
+          git commit -m "Update MLB odds"
           git push
