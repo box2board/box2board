@@ -2,33 +2,33 @@ name: Update MLB Odds
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 15 * * *'  # 3 PM UTC = 11 AM ET daily
 
 jobs:
-  update-odds:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - name: Checkout Repo
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: 3.10
 
-      # You can skip this if no external packages are required
       - name: Install dependencies
-        run: |
-          if [ -f mlb/requirements.txt ]; then pip install -r mlb/requirements.txt; fi
+        run: pip install requests
 
       - name: Run script
-        working-directory: ./mlb
-        run: python generate_games_html.py
+        run: python mlb/generate_games_html.py
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
-      - name: Commit and push changes
+      - name: Commit and Push
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git add index.html
+          git add mlb/index.html
           git commit -m "Update MLB odds"
           git push
