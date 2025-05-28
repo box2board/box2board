@@ -1,5 +1,6 @@
 import os
 import requests
+from datetime import datetime, timezone
 from datetime import datetime
 from pathlib import Path
 
@@ -26,11 +27,22 @@ html_lines = [
     '<h2>Live MLB Odds</h2>',
     '<ul>'
 ]
+from datetime import datetime, timezone  # Ensure this is already at the top of your file
 
 for game in games:
     teams = game.get('teams', [])
+    
+    # ✅ Skip if teams are incomplete
+    if len(teams) < 2:
+        continue
+
+    # ✅ Skip games that already started
+    game_time = datetime.fromisoformat(game['commence_time'].replace('Z', '+00:00'))
+    if game_time < datetime.now(timezone.utc):
+        continue
+
     home_team = game.get('home_team', '')
-    commence_time = datetime.fromisoformat(game['commence_time'].replace('Z', '')).strftime('%I:%M %p ET')
+    commence_time = game_time.strftime('%I:%M %p')
 
     bookmakers = game.get('bookmakers', [])
     if not bookmakers:
