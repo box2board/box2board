@@ -25,7 +25,7 @@ jobs:
       - name: Run script
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python mlb_odds_today.py
+        run: python mlb/mlb_odds_today.py
 
       - name: Commit and push changes
         run: |
