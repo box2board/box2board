@@ -238,3 +238,14 @@ h1 {
   font-size: 1em;
   color: #333;
 }
+.main-header {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.full-header-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
