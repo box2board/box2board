@@ -45,6 +45,34 @@
       <h2>Visual Trends (Coming Soon)</h2>
       <p><em>Custom Box2Board visuals and prop heat maps coming soon.</em></p>
     </section>
+    <h2 class="page-title">🏆 2025 MLB Home Run Leaders</h2>
+<div id="hr-leaders">Loading...</div>
+
+<script>
+  const API_URL = "https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=homeRuns&season=2025&limit=25&sportId=1";
+
+  fetch(API_URL)
+    .then(response => response.json())
+    .then(data => {
+      const leaders = data.stats[0].leaders;
+      let html = '<table class="hr-table"><thead><tr><th>#</th><th>Player</th><th>Team</th><th>HR</th></tr></thead><tbody>';
+      leaders.forEach((player, index) => {
+        html += `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${player.person.fullName}</td>
+            <td>${player.team.name}</td>
+            <td>${player.value}</td>
+          </tr>`;
+      });
+      html += '</tbody></table>';
+      document.getElementById("hr-leaders").innerHTML = html;
+    })
+    .catch(error => {
+      console.error("Error fetching home run data:", error);
+      document.getElementById("hr-leaders").innerText = "Could not load data.";
+    });
+</script>
   </main>
 
   <footer class="site-footer">
