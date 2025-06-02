@@ -1,1 +1,15 @@
-
+[
+  {
+    "date": "2025-06-02",
+    "clues": [
+      "Released in 1999",
+      "Stars Keanu Reeves",
+      "Famous for its red pill/blue pill moment",
+      "Directed by the Wachowskis",
+      "Features bullet time"
+    ],
+    "answer": "The Matrix",
+    "acceptedAnswers": ["matrix", "the matrix"],
+    "funFact": "The film’s green-tinted code was inspired by sushi recipes."
+  }
+]
