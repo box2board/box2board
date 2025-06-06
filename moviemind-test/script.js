@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let playerName = localStorage.getItem("playerName");
+  // Get or ask for player name
+  let playerName = localStorage.getItem("playerName");
   if (!playerName) {
     playerName = prompt("Enter your name or nickname:");
     localStorage.setItem("playerName", playerName);
   }
-  fetch("data.json")
+
+  // Load puzzles
+  fetch("data.json?" + new Date().getTime())
     .then(response => response.json())
     .then(puzzles => {
       const question = puzzles[Math.floor(Math.random() * puzzles.length)];
@@ -36,8 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (guess === question.answer.toLowerCase()) {
           const score = 6 - currentClue;
           resultElement.innerHTML = `🎉 Correct! You earned ${score} points.<br>Fun fact: ${question.funFact}`;
-            const score = 6 - currentClue;
-resultElement.innerHTML = ...
+
+          // Save score to local history
+          let scores = JSON.parse(localStorage.getItem("playerScores") || "[]");
+          scores.push({ name: playerName, score: score, date: new Date().toISOString() });
+          localStorage.setItem("playerScores", JSON.stringify(scores));
         } else {
           guesses--;
           if (guesses > 0) {
@@ -50,28 +56,31 @@ resultElement.innerHTML = ...
       }
 
       submitBtn.addEventListener("click", submitGuess);
+      showLeaderboard();
     })
     .catch(err => {
       document.getElementById("category").textContent = "Error loading puzzle data.";
       console.error("Failed to load data.json", err);
     });
+
+  // Show leaderboard
+  function showLeaderboard() {
+    const scores = JSON.parse(localStorage.getItem("playerScores") || "[]");
+    if (scores.length === 0) return;
+
+    const leaderboard = document.createElement("div");
+    leaderboard.innerHTML = "<h2>🏆 Local Leaderboard</h2>";
+
+    const sorted = scores.sort((a, b) => b.score - a.score).slice(0, 5);
+
+    const list = document.createElement("ol");
+    sorted.forEach(entry => {
+      const item = document.createElement("li");
+      item.textContent = `${entry.name}: ${entry.score} pts`;
+      list.appendChild(item);
+    });
+
+    leaderboard.appendChild(list);
+    document.body.appendChild(leaderboard);
+  }
 });
-function showLeaderboard() {
-  const scores = JSON.parse(localStorage.getItem("playerScores") || "[]");
-  if (scores.length === 0) return;
-
-  const leaderboard = document.createElement("div");
-  leaderboard.innerHTML = "<h2>🏆 Local Leaderboard</h2>";
-
-  const sorted = scores.sort((a, b) => b.score - a.score).slice(0, 5);
-
-  const list = document.createElement("ol");
-  sorted.forEach(entry => {
-    const item = document.createElement("li");
-    item.textContent = `${entry.name}: ${entry.score} pts`;
-    list.appendChild(item);
-  });
-
-  leaderboard.appendChild(list);
-  document.body.appendChild(leaderboard);
-}
