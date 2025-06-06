@@ -57,34 +57,35 @@ ts<!DOCTYPE html>
     <li>Loading events...</li>
   </ul>
 </section>
-
 <script>
   const eventList = document.getElementById('event-list');
 
   async function loadEvents() {
     try {
       const res = await fetch('/api/todaysEvents');
-      const data = await res.json();
+      const games = await res.json();
+
       eventList.innerHTML = '';
 
-      if (!data.length) {
+      if (!games.length) {
         eventList.innerHTML = '<li>No events scheduled for today.</li>';
         return;
       }
 
-      data.forEach(event => {
+      games.forEach(game => {
         const li = document.createElement('li');
-        li.innerHTML = `<strong>${event.league}:</strong> ${event.teams} – ${event.commence_time}`;
+        li.innerHTML = `<strong>${game.league}:</strong> ${game.matchup} – ${game.time}`;
         eventList.appendChild(li);
       });
     } catch (err) {
-      console.error('Error fetching events:', err);
+      console.error('Error fetching today’s events:', err);
       eventList.innerHTML = '<li>Could not load events.</li>';
     }
   }
 
   loadEvents();
 </script>
+
 
  
   <section class="scoreboard">
