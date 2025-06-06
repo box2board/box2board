@@ -1,36 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MovieMind – 5 Clues Challenge</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Clue Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <h1>🎬 Can You Guess the Movie?</h1>
-    <div id="clue-list">
-      <p class="clue hidden" id="clue1"></p>
-      <p class="clue hidden" id="clue2"></p>
-      <p class="clue hidden" id="clue3"></p>
-      <p class="clue hidden" id="clue4"></p>
-      <p class="clue hidden" id="clue5"></p>
-    </div>
-
-    <button id="reveal-btn">Reveal Next Clue</button>
-
-    <div id="guess-box">
-      <input type="text" id="guess-input" placeholder="Your guess..." />
-      <button id="check-btn">Check Answer</button>
-    </div>
-
-    <div id="feedback"></div>
-    <div id="answer-section" class="hidden">
-      <h2>The Movie Was: <span id="final-answer"></span></h2>
-      <p id="fun-fact"></p>
-    </div>
-  </main>
-
+  <h1>Clue Game</h1>
+  <p id="category"></p>
+  <div id="clues"></div>
+  <input type="text" id="guessInput" placeholder="Enter your guess" />
+  <button onclick="submitGuess()">Submit Guess</button>
+  <p id="result"></p>
+  <footer>
+    <small>Coming soon: Support us via Buy Me a Coffee!</small>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
+
