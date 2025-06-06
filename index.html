@@ -51,7 +51,7 @@ ts<!DOCTYPE html>
     </a>
   </div>
 </main>
- <section class="events-section">
+<section class="events-section">
   <h2>Today’s Events</h2>
   <ul class="event-list" id="event-list">
     <li>Loading events...</li>
@@ -74,12 +74,12 @@ ts<!DOCTYPE html>
 
       data.forEach(event => {
         const li = document.createElement('li');
-        li.innerHTML = `<strong>${event.league}:</strong> ${event.away} at ${event.home} – ${event.time}`;
+        li.innerHTML = `<strong>${event.league}:</strong> ${event.teams} – ${event.commence_time}`;
         eventList.appendChild(li);
       });
     } catch (err) {
-      console.error('Failed to load events:', err);
-      eventList.innerHTML = '<li>Error loading events.</li>';
+      console.error('Error fetching events:', err);
+      eventList.innerHTML = '<li>Could not load events.</li>';
     }
   }
 
