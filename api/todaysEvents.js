@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   const API_KEY = process.env.BALL_DONT_LIE_KEY;
   const today = new Date().toISOString().split('T')[0];
-  const leagues = ['mlb', 'nba', 'nfl', 'nhl', 'pga'];
+  const leagues = ['mlb', 'nba', 'nfl', 'nhl']; // removed 'pga'
   const allGames = [];
 
   for (const league of leagues) {
@@ -14,14 +14,18 @@ export default async function handler(req, res) {
       });
 
       const data = await response.json();
-console.log(`Response for ${league}:`, JSON.stringify(data.data?.[0], null, 2));
-      if (Array.isArray(data.data)) {
+
+      if (data && Array.isArray(data.data)) {
         data.data.forEach(game => {
           allGames.push({
             league: league.toUpperCase(),
-            away: game.away_team?.name || 'TBD',
-            home: game.home_team?.name || 'TBD',
-            time: game.start_time || 'TBD'
+            away: game.away_team_name || game.away_team?.display_name || 'TBD',
+            home: game.home_team_name || game.home_team?.display_name || 'TBD',
+            time: new Date(game.date).toLocaleTimeString('en-US', {
+              hour: 'numeric',
+              minute: '2-digit',
+              timeZone: 'America/New_York'
+            }) || 'TBD'
           });
         });
       }
