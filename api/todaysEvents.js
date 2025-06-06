@@ -1,9 +1,7 @@
 export default async function handler(req, res) {
   const API_KEY = process.env.BALL_DONT_LIE_KEY;  // ✅ Uses Vercel secret
 
-  const today = new Date().toISOString().split('T')[0];
-  const leagues = ['mlb', 'nba', 'nfl', 'nhl', 'pga'];
-  const allGames = [];
+  const today = '2024-10-20';
 
   for (const league of leagues) {
     try {
