@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (guess === question.answer.toLowerCase()) {
           const score = 6 - currentClue;
           resultElement.innerHTML = `🎉 Correct! You earned ${score} points.<br>Fun fact: ${question.funFact}`;
+            const score = 6 - currentClue;
+resultElement.innerHTML = ...
         } else {
           guesses--;
           if (guesses > 0) {
