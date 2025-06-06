@@ -1,35 +1,34 @@
 export default async function handler(req, res) {
-  const API_KEY = process.env.ODDS_API_KEY;
+  const API_KEY = process.env.BALL_DONT_LIE_KEY;  // ✅ Uses Vercel secret
 
-  const sports = ['baseball_mlb', 'basketball_nba', 'icehockey_nhl', 'americanfootball_nfl', 'golf_pga'];
-  const region = 'us'; // Use 'us' for U.S. markets
+  const today = new Date().toISOString().split('T')[0];
+  const leagues = ['mlb', 'nba', 'nfl', 'nhl', 'pga'];
+  const allGames = [];
 
-  const allEvents = [];
-
-  for (const sport of sports) {
+  for (const league of leagues) {
     try {
-      const url = `https://api.the-odds-api.com/v4/sports/${sport}/events?apiKey=${API_KEY}&regions=${region}`;
-      const response = await fetch(url);
-      const data = await response.json();
+      const endpoint = `https://api.balldontlie.io/${league}/v1/games?date=${today}`;
+      const response = await fetch(endpoint, {
+        headers: {
+          Authorization: API_KEY
+        }
+      });
 
-      if (Array.isArray(data)) {
-        data.forEach(event => {
-          allEvents.push({
-            league: sport.toUpperCase(),
-            teams: event.teams?.join(' vs ') || 'TBD vs TBD',
-            commence_time: new Date(event.commence_time).toLocaleTimeString('en-US', {
-              hour: 'numeric',
-              minute: '2-digit',
-              timeZone: 'America/New_York',
-              timeZoneName: 'short'
-            })
+      const data = await response.json();
+      if (Array.isArray(data.data)) {
+        data.data.forEach(game => {
+          allGames.push({
+            league: league.toUpperCase(),
+            away: game.away_team?.name || 'TBD',
+            home: game.home_team?.name || 'TBD',
+            time: game.start_time || 'TBD'
           });
         });
       }
-    } catch (error) {
-      console.error(`Error loading ${sport}:`, error);
+    } catch (err) {
+      console.warn(`No games returned for ${league.toUpperCase()}`);
     }
   }
 
-  res.status(200).json(allEvents);
+  res.status(200).json(allGames);
 }
