@@ -51,15 +51,41 @@ ts<!DOCTYPE html>
     </a>
   </div>
 </main>
-  <section class="events-section">
+ <section class="events-section">
   <h2>Today’s Events</h2>
-  <ul class="event-list">
-    <li><strong>MLB:</strong> Braves at Phillies – 7:05 PM ET</li>
-    <li><strong>NBA:</strong> Celtics at Heat – 8:30 PM ET</li>
-    <li><strong>NHL:</strong> Maple Leafs at Rangers – 7:00 PM ET</li>
-    <li><strong>Golf:</strong> PGA Championship Round 2 – All Day</li>
+  <ul class="event-list" id="event-list">
+    <li>Loading events...</li>
   </ul>
 </section>
+
+<script>
+  const eventList = document.getElementById('event-list');
+
+  async function loadEvents() {
+    try {
+      const res = await fetch('/api/todaysEvents');
+      const data = await res.json();
+      eventList.innerHTML = '';
+
+      if (!data.length) {
+        eventList.innerHTML = '<li>No events scheduled for today.</li>';
+        return;
+      }
+
+      data.forEach(event => {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${event.league}:</strong> ${event.away} at ${event.home} – ${event.time}`;
+        eventList.appendChild(li);
+      });
+    } catch (err) {
+      console.error('Failed to load events:', err);
+      eventList.innerHTML = '<li>Error loading events.</li>';
+    }
+  }
+
+  loadEvents();
+</script>
+
  
   <section class="scoreboard">
   <h2>Live MLB Scoreboard</h2>
