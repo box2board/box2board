@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       });
 
       const data = await response.json();
-
+console.log(`Response for ${league}:`, JSON.stringify(data.data?.[0], null, 2));
       if (Array.isArray(data.data)) {
         data.data.forEach(game => {
           allGames.push({
