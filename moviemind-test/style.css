@@ -72,3 +72,37 @@ footer {
 #leaderboard ol {
   padding-left: 1.25rem;
 }
+#status {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #e0f7fa;
+  border-left: 5px solid #0077cc;
+  border-radius: 4px;
+}
+
+#clues p {
+  transition: all 0.3s ease;
+}
+
+button#submitBtn,
+button#revealClue {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#submitBtn:hover,
+button#revealClue:hover {
+  background-color: #005fa3;
+}
+
+button:disabled {
+  background-color: #ccc !important;
+  cursor: not-allowed;
+}
