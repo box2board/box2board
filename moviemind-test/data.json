@@ -1,0 +1,26 @@
+[
+  {
+    "category": "Movie",
+    "answer": "Pulp Fiction",
+    "clues": [
+      "This film was directed by a two-time Academy Award winner.",
+      "It features a mysterious briefcase.",
+      "The narrative is told out of chronological order.",
+      "Stars include John Travolta and Samuel L. Jackson.",
+      "Includes the iconic 'Royale with Cheese' scene."
+    ],
+    "funFact": "The word 'fuck' is used 265 times in the film!"
+  },
+  {
+    "category": "Sports",
+    "answer": "Michael Jordan",
+    "clues": [
+      "Famously wore the number 23 jersey.",
+      "Starred in both basketball and baseball.",
+      "Led a team to six NBA championships.",
+      "Known for his competitive mindset and 'flu game.'",
+      "Played for the Chicago Bulls and Washington Wizards."
+    ],
+    "funFact": "He made more money from Nike than his entire NBA salary."
+  }
+]
