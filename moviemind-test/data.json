@@ -1,26 +1,182 @@
 [
   {
-    "category": "Movie",
-    "answer": "Pulp Fiction",
+    "category": "Sports",
+    "answer": "LeBron James",
     "clues": [
-      "This film was directed by a two-time Academy Award winner.",
-      "It features a mysterious briefcase.",
-      "The narrative is told out of chronological order.",
-      "Stars include John Travolta and Samuel L. Jackson.",
-      "Includes the iconic 'Royale with Cheese' scene."
+      "Born in Ohio\u2019s fifth most populous city.",
+      "Has played professionally in both Florida and California.",
+      "Shares a nickname with European royalty.",
+      "Passed a record held for nearly four decades.",
+      "Made his professional debut the same year Finding Nemo was released."
     ],
-    "funFact": "The word 'fuck' is used 265 times in the film!"
+    "funFact": "He appeared on the cover of Sports Illustrated before playing a single NBA game."
   },
   {
     "category": "Sports",
-    "answer": "Michael Jordan",
+    "answer": "Serena Williams",
     "clues": [
-      "Famously wore the number 23 jersey.",
-      "Starred in both basketball and baseball.",
-      "Led a team to six NBA championships.",
-      "Known for his competitive mindset and 'flu game.'",
-      "Played for the Chicago Bulls and Washington Wizards."
+      "Won her first major singles title before turning 18.",
+      "Has a sibling who also competed professionally at the highest level.",
+      "Returned to win a major title after becoming a mother.",
+      "Known for a dominant serve and distinctive fashion on the court.",
+      "Her 23 Grand Slam titles are the most by any player in the Open Era."
     ],
-    "funFact": "He made more money from Nike than his entire NBA salary."
+    "funFact": "She won her first U.S. Open in 1999 while still a teenager."
+  },
+  {
+    "category": "Sports",
+    "answer": "Tom Brady",
+    "clues": [
+      "Drafted after 198 players had already been selected.",
+      "Spent most of his career under the same head coach.",
+      "Known for late-game heroics and comeback wins.",
+      "Retired with more Super Bowl wins than any single franchise.",
+      "Famously associated with the number 12 jersey."
+    ],
+    "funFact": "He was also drafted by a Major League Baseball team before committing to football."
+  },
+  {
+    "category": "Sports",
+    "answer": "Michael Phelps",
+    "clues": [
+      "First appeared on the Olympic stage before turning 16.",
+      "Trained in a city not typically associated with swimming success.",
+      "Once stood on the podium while his national anthem played eight times in one Games.",
+      "Wore a distinctive warm-up outfit and famously intense expression before races.",
+      "Holds more gold than any single athlete in modern Olympic history."
+    ],
+    "funFact": "His signature pre-race routine includes slapping his back and stretching with exaggerated arm swings\u2014a habit since childhood."
+  },
+  {
+    "category": "Sports",
+    "answer": "Lionel Messi",
+    "clues": [
+      "Left his home country as a teenager to pursue his career.",
+      "Spent over two decades at the same European club.",
+      "Known for his short stature and precise left foot.",
+      "Won a long-coveted international title late in his career.",
+      "Often compared to Diego Maradona."
+    ],
+    "funFact": "He holds the record for most Ballon d'Or wins in history."
+  },
+  {
+    "category": "Film",
+    "answer": "The Godfather",
+    "clues": [
+      "Adapted from a novel that outsold Love Story the year it was published.",
+      "Its production was so controversial that real-life figures tried to influence the script.",
+      "Known for muting violence with classical music and slow pacing.",
+      "Famously features oranges as a recurring visual motif before acts of violence.",
+      "Ends with a symbolic transition of power behind a closed door."
+    ],
+    "funFact": "The word \u201cmafia\u201d was only spoken once in the entire film due to pressure from Italian-American organizations."
+  },
+  {
+    "category": "Film",
+    "answer": "Pulp Fiction",
+    "clues": [
+      "Blends the profane and profound without warning.",
+      "Elevates banter into existential monologue.",
+      "Features lives shaped by both bullets and breakfast.",
+      "Treats the sacred and the absurd with equal weight.",
+      "Its title hints at something cheap, pulpy\u2014and poetic."
+    ],
+    "funFact": "Despite its reputation for grit, the film\u2019s most explosive moments often occur during quiet conversation."
+  },
+  {
+    "category": "Film",
+    "answer": "The Truman Show",
+    "clues": [
+      "The sun always rises where the script says it should.",
+      "Comfort is weaponized in the name of control.",
+      "Surveillance wears a smile and a product pitch.",
+      "Escape begins not with a plan, but with doubt.",
+      "One man walks through the wall that was his world."
+    ],
+    "funFact": "A real psychological condition was named after this film, describing patients convinced their lives are secretly being broadcast."
+  },
+  {
+    "category": "Film",
+    "answer": "Parasite",
+    "clues": [
+      "Its story revolves around two families linked by architecture and labor.",
+      "Won top prizes at both Cannes and the Academy Awards.",
+      "Features a secret underground location central to the plot.",
+      "Deals with themes of class division and invisible boundaries.",
+      "In one scene, a flood leads to the revelation of something buried\u2014both literally and metaphorically."
+    ],
+    "funFact": "It became the first non-English-language film to win the Academy Award for Best Picture."
+  },
+  {
+    "category": "Film",
+    "answer": "Casablanca",
+    "clues": [
+      "Set in a city where loyalty and longing both change with the weather.",
+      "A place of temporary stays, permanent memories, and lost causes.",
+      "The piano knows more about the past than the people playing it.",
+      "Sacrifice arrives not as a choice, but as a necessity.",
+      "Ends with two men walking into fog, with war behind them and something new ahead."
+    ],
+    "funFact": "Despite its timeless reputation, the film was written and rewritten even as it was being shot\u2014sometimes with no ending in sight."
+  },
+  {
+    "category": "History",
+    "answer": "Julius Caesar",
+    "clues": [
+      "Once praised as a hero of the commoners",
+      "Defied orders not with words, but with movement",
+      "His end came in daylight, surrounded by men he once trusted",
+      "The aftermath reshaped leadership forever",
+      "History remembers his fall more than his rule"
+    ],
+    "funFact": "He was assassinated on the Ides of March by fellow senators, including his friend Brutus."
+  },
+  {
+    "category": "History",
+    "answer": "Harriet Tubman",
+    "clues": [
+      "Walked a path most couldn\u2019t see, but many followed",
+      "She led without title, yet was called by a prophet\u2019s name",
+      "Slipped through nets meant to catch her, time and again",
+      "Fought for freedom with no uniform",
+      "Her journeys were made in silence, but echoed loudly through time"
+    ],
+    "funFact": "She led hundreds of enslaved people to freedom via the Underground Railroad and later served as a Union spy."
+  },
+  {
+    "category": "History",
+    "answer": "The French Revolution",
+    "clues": [
+      "Grew from empty plates and heavy pockets",
+      "Its rallying cry outlived its leaders",
+      "Crowds cheered as heads rolled",
+      "Ideals clashed harder than armies",
+      "A stormed building became a symbol"
+    ],
+    "funFact": "The storming of the Bastille on July 14, 1789, is now celebrated as France's national holiday."
+  },
+  {
+    "category": "History",
+    "answer": "The Berlin Wall",
+    "clues": [
+      "Appeared quickly, but stayed long",
+      "Families waved across a border of concrete",
+      "Art and graffiti told stories the guards couldn\u2019t stop",
+      "The line stood for more than geography",
+      "Its fall was louder than its construction"
+    ],
+    "funFact": "The Berlin Wall stood from 1961 to 1989, dividing East and West Berlin during the Cold War."
+  },
+  {
+    "category": "History",
+    "answer": "Eleanor Roosevelt",
+    "clues": [
+      "Rewrote expectations while others read from scripts",
+      "Often stood where cameras weren\u2019t focused",
+      "Spoke in columns more than speeches",
+      "Her legacy lives in documents, not monuments",
+      "Known more for action than ceremony"
+    ],
+    "funFact": "She was the first chair of the UN Commission on Human Rights and helped draft the Universal Declaration of Human Rights."
   }
 ]
