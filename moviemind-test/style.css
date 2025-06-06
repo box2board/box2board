@@ -1,63 +1,19 @@
 body {
   font-family: sans-serif;
-  background-color: #111;
-  color: #fff;
-  text-align: center;
-  margin: 0;
-  padding: 1rem;
+  padding: 2rem;
+  max-width: 600px;
+  margin: auto;
 }
-
-h1 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-#clue-list {
-  margin-bottom: 1rem;
-}
-
-.clue {
-  background: #222;
-  padding: 0.75rem;
-  margin: 0.5rem auto;
-  border-radius: 8px;
-  max-width: 90%;
-}
-
-.hidden {
-  display: none;
-}
-
-#guess-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-#guess-input {
+input {
+  width: 100%;
   padding: 0.5rem;
-  width: 80%;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: none;
-}
-
-button {
-  background-color: #e50914;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-#feedback {
-  margin: 0.5rem 0;
-  font-weight: bold;
-}
-
-#answer-section {
   margin-top: 1rem;
+}
+button {
+  margin-top: 0.5rem;
+}
+footer {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: gray;
 }
