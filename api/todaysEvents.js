@@ -1,8 +1,7 @@
 export default async function handler(req, res) {
   const API_KEY = process.env.BALL_DONT_LIE_KEY;
- const tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate() + 1);
-const today = tomorrow.toISOString().split('T')[0];
+ const today = '2024-10-20'; //
+
 
   const leagues = ['mlb', 'nba', 'nfl', 'nhl', 'pga'];
   const allGames = [];
