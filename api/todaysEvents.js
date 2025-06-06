@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   const API_KEY = process.env.BALL_DONT_LIE_KEY;
   const today = new Date().toISOString().split('T')[0];
-  const leagues = ['mlb', 'nba', 'nfl', 'nhl']; // removed 'pga'
+  const leagues = ['mlb']; // Only using MLB for now to confirm it works
   const allGames = [];
 
   for (const league of leagues) {
@@ -19,13 +19,12 @@ export default async function handler(req, res) {
         data.data.forEach(game => {
           allGames.push({
             league: league.toUpperCase(),
-            away: game.away_team_name || game.away_team?.display_name || 'TBD',
-            home: game.home_team_name || game.home_team?.display_name || 'TBD',
+            matchup: `${game.away_team_name} at ${game.home_team_name}`,
             time: new Date(game.date).toLocaleTimeString('en-US', {
               hour: 'numeric',
               minute: '2-digit',
               timeZone: 'America/New_York'
-            }) || 'TBD'
+            })
           });
         });
       }
