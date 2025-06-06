@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+    let playerName = localStorage.getItem("playerName");
+  if (!playerName) {
+    playerName = prompt("Enter your name or nickname:");
+    localStorage.setItem("playerName", playerName);
+  }
   fetch("data.json")
     .then(response => response.json())
     .then(puzzles => {
