@@ -1,4 +1,4 @@
-ts<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Box2Board</title>
@@ -6,114 +6,120 @@ ts<!DOCTYPE html>
 </head>
 <body>
   <header class="main-header">
-  <a href="/">
-    <img src="Header" alt="Box2Board Header" class="full-header-img">
-  </a>
-</header>
+    <a href="/">
+      <img src="Header" alt="Box2Board Header" class="full-header-img">
+    </a>
   </header>
+
   <section class="hero-hook">
-  <h1>The Smarter Side of the Scoreboard</h1>
-  <p class="subtext">
-    Box2Board delivers visual stats and streak-based angles for every bettor tired of scrolling Reddit or guessing with gut feelings.
-  </p>
-</section>
+    <h1>The Smarter Side of the Scoreboard</h1>
+    <p class="subtext">
+      Box2Board delivers visual stats and streak-based angles for every bettor tired of scrolling Reddit or guessing with gut feelings.
+    </p>
+  </section>
+
   <section class="value-section">
-  <h2>Why Box2Board?</h2>
-  <ul class="value-points">
-    <li><strong>Streak-Driven Stats:</strong> See who's hot, who's due, and what trends matter — without digging through box scores.</li>
-    <li><strong>Visual First:</strong> Our insights are built to be understood in seconds — not after 10 clicks or 20 filters.</li>
-    <li><strong>No Picks, Just Edges:</strong> We don’t sell picks — we show you what the numbers are saying and you decide to tail or fade.</li>
-  </ul>
-</section>
-   <main><main>
-  <h1>Welcome to Box2Board</h1>
-  <p>Choose a sport to get started:</p>
-  <div class="league-grid">
-    <a href="mlb/index.html" class="league-icon">
-      <span class="emoji">⚾</span>
-      <span>MLB</span>
-    </a>
-    <a href="nfl/index.html" class="league-icon">
-      <span class="emoji">🏈</span>
-      <span>NFL</span>
-    </a>
-    <a href="nba/index.html" class="league-icon">
-      <span class="emoji">🏀</span>
-      <span>NBA</span>
-    </a>
-    <a href="nhl/index.html" class="league-icon">
-      <span class="emoji">🏒</span>
-      <span>NHL</span>
-    </a>
-    <a href="golf/index.html" class="league-icon">
-      <span class="emoji">⛳</span>
-      <span>Golf</span>
-    </a>
-  </div>
-</main>
-<section class="events-section">
-  <h2>Today’s Events</h2>
-  <ul class="event-list" id="event-list">
-    <li>Loading events...</li>
-  </ul>
-</section>
-<script>
-  const eventList = document.getElementById('event-list');
+    <h2>Why Box2Board?</h2>
+    <ul class="value-points">
+      <li><strong>Streak-Driven Stats:</strong> See who's hot, who's due, and what trends matter — without digging through box scores.</li>
+      <li><strong>Visual First:</strong> Our insights are built to be understood in seconds — not after 10 clicks or 20 filters.</li>
+      <li><strong>No Picks, Just Edges:</strong> We don’t sell picks — we show you what the numbers are saying and you decide to tail or fade.</li>
+    </ul>
+  </section>
 
-  async function loadEvents() {
-    try {
-      const res = await fetch('/api/todaysEvents');
-      const games = await res.json();
+  <main>
+    <h1>Welcome to Box2Board</h1>
+    <p>Choose a sport to get started:</p>
+    <div class="league-grid">
+      <a href="mlb/index.html" class="league-icon">
+        <span class="emoji">⚾</span>
+        <span>MLB</span>
+      </a>
+      <a href="nfl/index.html" class="league-icon">
+        <span class="emoji">🏈</span>
+        <span>NFL</span>
+      </a>
+      <a href="nba/index.html" class="league-icon">
+        <span class="emoji">🏀</span>
+        <span>NBA</span>
+      </a>
+      <a href="nhl/index.html" class="league-icon">
+        <span class="emoji">🏒</span>
+        <span>NHL</span>
+      </a>
+      <a href="golf/index.html" class="league-icon">
+        <span class="emoji">⛳</span>
+        <span>Golf</span>
+      </a>
+    </div>
+  </main>
 
-      eventList.innerHTML = '';
+  <section class="events-section">
+    <h2>Today’s Events</h2>
+    <ul class="event-list" id="event-list">
+      <li>Loading events...</li>
+    </ul>
+  </section>
 
-      if (!games.length) {
-        eventList.innerHTML = '<li>No events scheduled for today.</li>';
-        return;
+  <script>
+    const eventList = document.getElementById('event-list');
+
+    async function loadEvents() {
+      try {
+        const res = await fetch('/api/todaysEvents');
+        const games = await res.json();
+
+        eventList.innerHTML = '';
+
+        if (!games.length) {
+          eventList.innerHTML = '<li>No events scheduled for today.</li>';
+          return;
+        }
+
+        // Sort games by time (handles formats like "7:10 PM")
+        games.sort((a, b) => new Date('1970-01-01 ' + a.time) - new Date('1970-01-01 ' + b.time));
+
+        games.forEach(game => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${game.league}:</strong> ${game.matchup} – ${game.time}`;
+          eventList.appendChild(li);
+        });
+      } catch (err) {
+        console.error('Error fetching today’s events:', err);
+        eventList.innerHTML = '<li>Could not load events.</li>';
       }
-
-      games.forEach(game => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${game.league}:</strong> ${game.matchup} – ${game.time}`;
-        eventList.appendChild(li);
-      });
-    } catch (err) {
-      console.error('Error fetching today’s events:', err);
-      eventList.innerHTML = '<li>Could not load events.</li>';
     }
-  }
 
-  loadEvents();
-</script>
+    loadEvents();
+  </script>
 
-
- 
   <section class="scoreboard">
-  <h2>Live MLB Scoreboard</h2>
-  <div id="scoreboard-container">
-    <p>Loading today’s games...</p>
-  </div>
-</section>
+    <h2>Live MLB Scoreboard</h2>
+    <div id="scoreboard-container">
+      <p>Loading today’s games...</p>
+    </div>
+  </section>
 
-<script>
-  // Placeholder for real data
-  document.getElementById("scoreboard-container").innerHTML = `
-    <ul>
-  <li class="score-row score-update"><strong>Yankees</strong> 3 - 2 <strong>Red Sox</strong> (Bottom 7th)</li>
-  <li class="score-row"><strong>Dodgers</strong> 5 - 5 <strong>Giants</strong> (Top 9th)</li>
-  <li class="score-row"><strong>Cubs</strong> 1 - 4 <strong>Cardinals</strong> (Final)</li>
-</ul>
-  `;
-</script>
+  <script>
+    // Placeholder for real data
+    document.getElementById("scoreboard-container").innerHTML = `
+      <ul>
+        <li class="score-row score-update"><strong>Yankees</strong> 3 - 2 <strong>Red Sox</strong> (Bottom 7th)</li>
+        <li class="score-row"><strong>Dodgers</strong> 5 - 5 <strong>Giants</strong> (Top 9th)</li>
+        <li class="score-row"><strong>Cubs</strong> 1 - 4 <strong>Cardinals</strong> (Final)</li>
+      </ul>
+    `;
+  </script>
+
   <footer class="site-footer">
-  <div class="footer-left">
-    &copy; 2025 Box2Board. All rights reserved.
-  </div>
-  <div class="footer-right">
-    <a href="https://your-substack-link" target="_blank">Newsletter</a> |
-    <a href="#">Contact</a> |
-    <a href="#">Disclaimer</a>
-  </div>
-</footer>
+    <div class="footer-left">
+      &copy; 2025 Box2Board. All rights reserved.
+    </div>
+    <div class="footer-right">
+      <a href="https://your-substack-link" target="_blank">Newsletter</a> |
+      <a href="#">Contact</a> |
+      <a href="#">Disclaimer</a>
+    </div>
+  </footer>
 </body>
 </html>
