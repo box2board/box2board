@@ -40,29 +40,39 @@
     <li>Loading...</li>
   </ul>
 </section>
+import { useEffect, useState } from 'react';
 
-<script>
-  async function loadTopHRHitters() {
-    try {
-      const res = await fetch('/api/hr-hitters');
-      const data = await res.json();
+export default function TopHRHitters() {
+  const [hitters, setHitters] = useState([]);
+  const [error, setError] = useState(false);
 
-      const list = document.getElementById('hr-list');
-      list.innerHTML = '';
+  useEffect(() => {
+    fetch('/api/top-hr-hitters')
+      .then((res) => res.json())
+      .then((data) => setHitters(data))
+      .catch(() => setError(true));
+  }, []);
 
-      data.forEach(player => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${player.name}</strong> — ${player.hr} HR (${player.team})`;
-        list.appendChild(li);
-      });
-    } catch (error) {
-      document.getElementById('hr-list').innerHTML = '<li>Error loading hitters.</li>';
-      console.error(error);
-    }
-  }
+  return (
+    <section>
+      <h2>Home Run Watch</h2>
+      <p><em>Who’s due, who’s locked in.</em></p>
+      <h3>Today's Top 20 Home Run Hitters</h3>
 
-  loadTopHRHitters();
-</script>
+      {error ? (
+        <p>Error loading hitters.</p>
+      ) : (
+        <ul>
+          {hitters.map((hitter, index) => (
+            <li key={index}>
+              {index + 1}. {hitter.name} ({hitter.team}) – {hitter.homeRuns} HRs
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
+}
     </section>
 
     <section class="mlb-section">
