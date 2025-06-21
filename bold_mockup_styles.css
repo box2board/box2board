@@ -92,3 +92,21 @@ h1, h2 {
 .score-row.giants { border-left-color: #FD5A1E; }
 .score-row.cubs { border-left-color: #0E3386; }
 .score-row.cardinals { border-left-color: #C41E3A; }
+.top-hr-hitters {
+  padding: 2rem;
+}
+
+.top-hr-hitters h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.top-hr-hitters ul {
+  list-style: none;
+  padding: 0;
+}
+
+.top-hr-hitters li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ccc;
+}
