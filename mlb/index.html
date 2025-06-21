@@ -44,7 +44,7 @@
 <script>
   async function loadTopHRHitters() {
     try {
-      const res = await fetch('/api/top-hr-hitters');
+      const res = await fetch('/api/hr-hitters');
       const data = await res.json();
 
       const list = document.getElementById('hr-list');
